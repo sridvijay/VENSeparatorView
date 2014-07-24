@@ -1,11 +1,16 @@
 #import "VENSeparatorView.h"
 
-#define DefaultFillColor [UIColor lightGrayColor]
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define DefaultFillColor UIColorFromRGB(0xF1F1F1)
 #define DefaultStrokeColor [UIColor grayColor]
 
 static CGFloat DefaultBorderWidth = 0.50f;
-static NSInteger DefaultJaggedEdgeHorizontalVertexDistance = 6;
-static NSInteger DefaultJaggedEdgeVerticalVertexDistance = 5;
+static NSInteger DefaultJaggedEdgeHorizontalVertexDistance = 8;
+static NSInteger DefaultJaggedEdgeVerticalVertexDistance = 6;
 
 @implementation VENSeparatorView
 
